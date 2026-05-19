@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { prisma } from "../prisma";
 
-export const login = async (email: string, senhaDigitada: string) => {
+export const auth = async (email: string, senhaDigitada: string) => {
   const admin = await prisma.admin.findUnique({ where: { email } });
   if (!admin) {
     throw new Error("Credenciais inválidas");
