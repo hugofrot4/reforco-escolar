@@ -2,6 +2,7 @@ import express from "express";
 import alunoRouter from "./routes/alunoRoutes";
 import pagamentoRouter from "./routes/pagamentoRoutes";
 import authRouter from "./routes/authRoutes";
+import turmaRouter from "./routes/turmaRoutes";
 import { authMiddleware } from "./middlewares/authMiddleware";
 const app = express();
 const port: number = 3000;
@@ -16,6 +17,7 @@ app.use(authRouter);
 app.use(authMiddleware);
 app.use(alunoRouter);
 app.use(pagamentoRouter);
+app.use(turmaRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
